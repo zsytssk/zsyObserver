@@ -1,0 +1,27 @@
+## function  
+-| emit(cmd, data):> 发布  
+
+-| emitASync(cmd, data):> 异步发布  
+
+-| on(cmd, callback, index):> 绑定  
+
+-| off(cmd, func):> 取消绑定  
+
+-| clear(cmd):> 清空cmd所有绑定  
+
+-| clearAll():> 清空所有函数  
+
+## emit  
+
+## on  
+-| index:> 支持函数执行顺序  
+
+## off  
+-| off 支持  parent::son  
+如果 off(parent) parent::son的绑定也同时取消  
+
+-| 如果只有cmd  
+
+## clear  
+
+## clearAll

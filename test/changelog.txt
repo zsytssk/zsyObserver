@@ -1,0 +1,29 @@
+## 2015/09/17 10:14  
+☐ header  
+-| 用户登录之后的状态改变  
+
+☐ lrf.forgetPassword.html  
+-| [add] 弹出层  
+-> 点击确认会弹出  
+
+
+☐ 产品页面  
+-| product.*.html  
+-> 添加图片切换 + 放大 + 购买  
+
+☐ 个人中心页面  
+-| 左边的导航相应的添加，账户中心移到上面去了  
+
+-| [add] user.index.html  
+
+-| [add] user.shopingcar.html  
+-| [add] user.shopingpay.html  
+-| user.shopingpay.html [change to] user.shopingpaymain.html  
+
+-| user.order.html  
+-> 添加不同类型订单切换。  
+-> 删除订单弹出弹出层  
+-| [add] user.order.comment.html  
+-> 有弹出层  
+-| user.tradedetail.html [change to] user.order.detail.html  
+-> 添加订单状态， 不同的状态对应不同的说明 全部放到下面了  

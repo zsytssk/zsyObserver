@@ -1,0 +1,12 @@
+_kook:> object  
+  cmdList:> array 所有cmd列表  
+  kookFunc> object 所有callback+索引  
+    cmd: array cmd下绑定所有函数  
+      func:> 绑定的函数  
+        index:>  function的执行顺序  
+
+
+## cmd 层级  
+click:>  
+  hhha:> hhh  
+  ground:> hhh  
