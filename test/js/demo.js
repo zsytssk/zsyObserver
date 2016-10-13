@@ -9,10 +9,11 @@ var mySubscriber3 = function (msg, data) {
   console.log('3', msg, data);
 };
 var obser = new zsyObserver();
-obser.on('h1', mySubscriber1);
-obser.on('h1::h3::h4', mySubscriber1);
-obser.on('h1::h2', mySubscriber2, 3);
-obser.on('h1::h2', mySubscriber1);
+obser.one('h1', mySubscriber1);
+obser.on('h1', mySubscriber2);
+obser.emit('h1', {
+  msg: 'hello world!'
+});
 obser.emit('h1', {
   msg: 'hello world!'
 });

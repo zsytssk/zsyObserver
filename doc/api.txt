@@ -4,6 +4,7 @@
 -| emitASync(cmd, data):> 异步发布  
 
 -| on(cmd, callback, index):> 绑定  
+-| one(cmd, callback, index):> 只执行一次  
 
 -| off(cmd, func):> 取消绑定  
 

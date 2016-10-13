@@ -43,16 +43,21 @@
     },
     emit: function (cmd, data) {
       var self = this;
-      var kookFuncs = self.kookFuncs;
+      var func_list = self.kookFuncs[cmd];
       if (!self.hasBinded(cmd)) {
         return false;
       }
-      kookFuncs[cmd].forEach(function (func) {
+      func_list.forEach(function (func, index) {
         func(cmd, data);
+      });
+      // 清除只需执行一次的函数
+      self.kookFuncs[cmd] = func_list.filter(function (func, index) {
+        return !func.call_only_one;
       });
       self.treePass(self.emit, cmd, data);
     },
-    on: function (cmd, func, index) {
+    on: function (cmd, func, index, call_only_one) {
+      // call_only_one 只执行一次
       var self = this;
       var kookFuncs = self.kookFuncs;
       if (typeof func !== 'function') {
@@ -65,9 +70,17 @@
         index = 0;
       }
       func.index = index;
+      if (call_only_one) {
+        func.call_only_one = true;
+      }
       injectEle(kookFuncs[cmd], func);
     },
+    one: function (cmd, func, index) {
+      var self = this;
+      self.on(cmd, func, index, true);
+    },
     off: function (cmd, func) {
+      // noTraceTree 不会传递到 父-->子
       var self = this;
       var kookFuncs = self.kookFuncs;
       if (!self.hasBinded(cmd)) {
